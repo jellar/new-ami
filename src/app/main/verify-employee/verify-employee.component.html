@@ -1,0 +1,20 @@
+<div class="card large grey lighten-4 z-depth-2">
+    <div class="card-content">
+      <span class="card-title"><h3>Verify Employee</h3></span>
+     <div class="ami-callout ami-callout-green">
+        <p>Verify Employee Instruction</p>
+      </div>
+      <div class="ami-callout ami-callout-orange">
+        <p>Verify Employee Script</p>
+      </div>
+       <form class="formly" role="form" novalidate [formGroup]="empInitSearchForm" (ngSubmit)="verifyEmployee(model)">
+        <formly-form [model]="model" [fields]="empInitSearchFields">
+          <button type="submit" class="btn btn-sm">Find</button>
+        </formly-form>
+      </form>
+    </div>
+    <div class="card-action">
+      <button type="button" class="btn btn-secondary" (click)="back()">BACK</button>
+      <button type="button" class="right btn btn-primary" (click)="next()">NEXT</button>
+    </div>
+  </div>

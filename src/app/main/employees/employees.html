@@ -1,0 +1,37 @@
+<div class="card large grey lighten-4 z-depth-2">
+    <div class="card-content">
+        <span class="card-title"><h3>Select Employee</h3></span>
+        <table class="table table-sm table-bordered" style="position: relative; height: 200px;overflow:auto;">
+            <thead>
+                <tr>
+                    <th>Surname</th>
+                    <th>FirstName</th>
+                    <th>Date of Birth</th>
+                    <th>Emp Ref</th>
+                    <th>Department</th>
+                    <th>Current Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let e of employees;">
+
+                    <td>{{e.surname}}</td>
+                    <td>{{e.firstname}}</td>
+                    <td>
+                        <span [innerHtml]="e.dateofBirth"></span>
+                    </td>
+                    <td>{{e.employeeRef}}</td>
+                    <td>{{e.department}}</td>
+                    <td>
+                        <span [innerHtml]="e.currentStatus"></span>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm" (click)="OnSelected(e)">Select</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

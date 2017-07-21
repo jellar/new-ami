@@ -1,0 +1,8 @@
+<div class="card large grey lighten-4 z-depth-2">
+    <div class="card-content">
+        <dynamic-form [config]="config" #form="dynamicForm" (submit)="submit($event)">
+
+        </dynamic-form>
+    </div>
+</div>
+{{ form.valid }} {{ form.value | json }}

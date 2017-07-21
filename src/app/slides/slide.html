@@ -1,0 +1,45 @@
+<div class="card large grey lighten-4 z-depth-2">
+    <div class="card-content">
+        <div *ngFor="let f of formFields">
+            <div [ngSwitch]="f.type">
+                <span class="card-title" *ngSwitchCase="'Header'"><h3>{{f.defaultValue}}</h3></span>
+
+                <div *ngSwitchCase="'LabelInstruction'" class="row ami-callout ami-callout-green">
+                    <span>{{f.defaultValue}}</span>
+                </div>
+                <div *ngSwitchCase="'LabelScript'" class="row ami-callout ami-callout-orange">
+                    <span>{{f.defaultValue}}</span>
+                </div>
+                <div *ngSwitchCase="'Input'" class="form-group">
+                    <label for="{{f.key}}">{{f.defaultValue}}</label>
+                    <input type="text" class="form-control form-control-sm col-sm-4" id="{{f.key}}" value="">
+
+                </div>
+                <div *ngSwitchCase="'Select'" class="form-group">
+                    <label for="{{f.key}}">{{f.defaultValue}}</label>
+                    <select class="form-control form-control-sm col-sm-4" id="{{f.key}}">
+                      <option *ngFor="let option of f.options" [ngValue]="'2'">
+                        {{option.name}}
+                      </option>
+                    </select>
+
+                </div>
+                <div *ngSwitchCase="'ExButton'">
+                    <div class="card-action">
+                        <button type="button" class="btn btn-default">{{f.defaultValue}}</button>
+                    </div>
+                </div>
+                <div *ngSwitchCase="'BackButton'">
+                    <div class="card-action">
+                        <button type="button" class="btn btn-default">{{f.defaultValue}}</button>
+                    </div>
+                </div>
+                <div *ngSwitchCase="'NextButton'">
+                    <div class="card-action">
+                        <button type="submit" class="right btn btn-primary" (click)="submit()">{{f.defaultValue}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

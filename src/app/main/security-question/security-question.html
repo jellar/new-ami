@@ -1,0 +1,39 @@
+<div class="card large grey lighten-4 z-depth-2">
+    <div class="card-content">
+        <span class="card-title"><h3>Security Question</h3></span>
+        <div class="ami-callout ami-callout-green">
+            <p>Security Question Instruction</p>
+        </div>
+        <div class="ami-callout ami-callout-orange">
+            <p>Security Question Script</p>
+        </div>
+        <div class="form-group row">
+            <label class="col-2">Employee Name</label>
+            <div class="col-5">
+                {{employee.fullName}}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2">Employee DoB</label>
+            <div class="col-5">
+                {{employee.dateofBirth | date: 'dd/MM/yyyy'}}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2">Question</label>
+            <div class="col-5">
+                {{employee.securityQuestion}}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2">Answer</label>
+            <div class="col-5">
+                {{employee.securityAnswer}}
+            </div>
+        </div>
+    </div>
+    <div class="card-action">
+        <button type="button" class="btn btn-danger" (click)="back()">Incorrect</button>
+        <button type="button" class="right btn btn-primary" (click)="next()">NEXT</button>
+    </div>
+</div>
