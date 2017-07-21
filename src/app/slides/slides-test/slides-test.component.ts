@@ -1,5 +1,6 @@
 import { Component, OnInit , ViewChild, AfterViewInit} from '@angular/core';
 import { Validators } from '@angular/forms';
+import { Http } from '@angular/http';
 import { FieldConfig } from '../../dynamic-form/models/field-config.interface';
 import { DynamicFormComponent } from '../../dynamic-form/containers/dynamic-form.component';
 
@@ -7,33 +8,20 @@ import { DynamicFormComponent } from '../../dynamic-form/containers/dynamic-form
   templateUrl: './slide-test.html'
 })
 
-export class SlidesTestComponent implements  AfterViewInit {
+export class SlidesTestComponent implements OnInit, AfterViewInit {
   @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
 
-  config = [
-    {
-      type: 'select',
-      label: 'Select a Company',
-      name: 'company',
-      options: ['A1 Housing', 'AMRI LTD (Albany Molecular Research)', 'Anglian Water Services Ltd', 'Aon Corporation'],
-      placeholder: 'Select an option',
-      validation: [Validators.required],
-      value: 'Aon Corporation'
-    },
-    {
-      type: 'input',
-      label: 'Surname',
-      name: 'surname',
-      value: '',
-      placeholder: 'Enter your surname',
-      validation: [Validators.required, Validators.minLength(3)]
-    },
-    {
-      label: 'Submit',
-      name: 'submit',
-      type: 'button'
-    }
-  ];
+  config = [];
+
+  constructor(private http: Http) {}
+
+  ngOnInit() {
+    this.http.get('http://localhost:56702/api/fakeslidetest/1')
+        .subscribe(response => {
+          console.log(response.json())
+           this.config = response.json()
+        })
+  }
 
   ngAfterViewInit() {
     let previousValid = this.form.valid;

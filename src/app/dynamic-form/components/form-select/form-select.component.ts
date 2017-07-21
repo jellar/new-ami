@@ -13,7 +13,7 @@ import { FieldConfig } from '../../models/field-config.interface';
       <label>{{ config.label }}</label>
       <select class="form-control" [formControlName]="config.name">
         <option value="">{{ config.placeholder }}</option>
-        <option *ngFor="let option of config.options">
+        <option *ngFor="let option of config.options" [selected]="option == config.value" [value]="config.value">
           {{ option }}
         </option>
       </select>

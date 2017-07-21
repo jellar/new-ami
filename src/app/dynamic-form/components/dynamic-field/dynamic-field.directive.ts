@@ -1,7 +1,10 @@
 
+
 import { ComponentFactoryResolver, ComponentRef, Directive, Input, OnChanges, OnInit, Type, ViewContainerRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
+import { FormHeaderComponent } from '../form-header/form-header.component';
+import { FormLabelComponent } from '../form-label/form-label.component';
 import { FormInputComponent } from './../form-input/form-input.component';
 import { FormSelectComponent } from './../form-select/form-select.component';
 import { FormButtonComponent } from './../form-button/form-button.component';
@@ -10,6 +13,8 @@ import { Field } from '../../models/field.interface';
 import { FieldConfig } from '../../models/field-config.interface';
 
 const components: {[type: string]: Type<Field>} = {
+  header: FormHeaderComponent,
+  label: FormLabelComponent,
   button: FormButtonComponent,
   input: FormInputComponent,
   select: FormSelectComponent
